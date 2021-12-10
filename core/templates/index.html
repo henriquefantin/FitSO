@@ -3,37 +3,43 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Django 1 - Index</title>
+    <title>Fit SO</title>
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 </head>
 <body>
     <center>
-    <h1>Index</h1>
+    <h1>Fit SO</h1>
 
-    <img src="{% static 'images/django.png' %}"/>
+    <img src="{% static 'images/sHeart.png' %}" style="width: 50%; height: 50%"/>
 
-    <h2>{{ curso }}</h2>
-
-    <p>{{ outro }}</p>
+    <h2>{{ tituloExe }}</h2>
 
     <table>
         <thead>
             <tr>
-                <th>Produto</th>
-                <th>Preço</th>
+                <th><button class="ui-button ui-widget ui-corner-all" onclick="alimentacao();">Alimentação</button></th>
+            </tr>
+            <tr>
+                <th><button class="ui-button ui-widget ui-corner-all" onclick="exercicios();">Exercícios</button></th>
+            </tr>
+            <tr>
+                <th><button class="ui-button ui-widget ui-corner-all" onclick="progresso();">Progresso</button></th>
             </tr>
         </thead>
         <tbody>
-        {% for produto in produtos %}
+        {% for funcionalidade in funcionalidades %}
             <tr>
-                <td><a href="{% url 'produto' produto.id %}">{{ produto.nome }}</a></td>
-                <td>{{ produto.preco }}</td>
+                <td><a href="{% url 'funcionalidade' produto.id %}">{{ produto.nome }}</a></td>
+
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <button onclick="teste();">Clique-me</button>
     </center>
     <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </body>

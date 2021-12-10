@@ -11,8 +11,7 @@ def index(request):
     produtos = Produto.objects.all()
 
     context = {
-        'curso': 'Programação Web com Django Framework',
-        'outro': 'Django é massa!',
+        'tituloExe': 'Cuide do seu coração e corpo!',
         'produtos': produtos
     }
     return render(request, 'index.html', context)
@@ -29,16 +28,21 @@ def produto(request, pk):
     context = {
         'produto': prod
     }
-    return render(request, 'produto.html', context)
+    return render(request, 'funcionalidade.html', context)
 
+def alimentacao(request):
+    return render(request, 'alimentacao.html')
+
+def exercicios(request):
+    return render(request, 'exercicios.html')
+
+def progresso(request):
+    return render(request, 'progresso.html')
 
 def error404(request, ex):
     template = loader.get_template('404.html')
     return HttpResponse(content=template.render(), content_type='text/thml; charset=utf8', status=404)
 
-
 def error500(request):
     template = loader.get_template('500.html')
     return HttpResponse(content=template.render(), content_type='text/html; charset=utf8', status=500)
-
-

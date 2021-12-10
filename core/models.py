@@ -1,5 +1,7 @@
 from django.db import models
 
+class Alimentacao(models.Model):
+
 
 class Produto(models.Model):
     nome = models.CharField('Nome', max_length=100)
